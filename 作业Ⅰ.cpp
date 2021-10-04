@@ -29,15 +29,13 @@ bool Insert(SqList & L,int x){
   if(L.length==L.listsize) return false;
   int i;
   //倒序向前寻找插入点，边寻找边做移位操作
-  for(int i=L.length;i>=0;i--){
+  for(i=L.length;i>0;i--){
     if(L.elem[i]>x){
       L.elem[i+1]=L.elem[i]
     }
-    else{
-      L.elem[i+1]=x;
-      break;
-    }
+    else break;
   }
+  L.elem[i+1]=x;
   L.length++;
   return true;
 }
